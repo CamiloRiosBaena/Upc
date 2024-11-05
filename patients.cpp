@@ -43,13 +43,13 @@ void register_p(int cnt){
 }
 
 void organizer(struct patient org[], int cnt){
-    struct patient aux[cnt];
-    for(int i=0; i<cnt; i++){
-        for(int j=1; j<cnt; j++){
-            if(org[i].code<org[j].code){
-                aux[i]=org[i];
+    struct patient aux;
+    for(int i=0; i<cnt-1; i++){
+        for(int j=i+1; j<cnt; j++){
+            if(org[i].code>org[j].code){
+                aux=org[i];
                 org[i]=org[j];
-                org[j]=org[i];
+                org[j]=aux;
             }
         }
     }
